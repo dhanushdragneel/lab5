@@ -1,0 +1,159 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>lab5</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+<body>
+  </head>
+  <style>
+  label {
+	color: White;
+	paddings: 8px;}
+  body
+  {
+  background-size:100% 100%;
+  background : skyBlue;
+  }
+  </style>
+<script>  
+function validateform(){  
+var first_name=document.myform.fname.value;  
+var password=document.myform.paswrd.value;
+var secondpassword=document.myform.paswrd1.value;
+var num=document.myform.phone.value;   
+var email=document.myform.email.value;
+var yr = document.getElementById("year").value;
+var ele = document.getElementsByName('gender');
+
+if (first_name==null || first_name==""){  
+  alert(" Name can't be blank");  
+  return false;  
+}
+if (email==null || email==""){  
+  alert(" Email can't be blank");  
+  return false;  
+}
+if (isNaN(num)){  
+  alert("Enter Phone number"); 
+  return false;
+}else if(num.length!=10)
+{ alert("Incorrect Phone Number");}
+if(password.length<6){  
+  alert("Password must be at least 6 characters long.");  
+  return false;  
+  }
+
+if(password != secondpassword){
+	alert("password must be same!"); 
+	return false;
+	}
+var temp=0;
+for(i = 0; i < ele.length; i++) { 
+            if(ele[i].checked) 
+             temp=1;
+            }
+if(temp==0){
+alert("select gender");
+}
+if(yr=="default"){
+	alert("select a year");
+	return false;
+	}
+ 
+}  
+</script>
+<script type="text/javascript" language="JavaScript">
+<!--
+function checkCheckBoxes(theForm) {
+	if (
+	theForm.CHECKBOX_1.checked == false &&
+	theForm.CHECKBOX_2.checked == false &&
+	theForm.CHECKBOX_3.checked == false) 
+	{
+		alert ("You didn't choose any of the problems!");
+		return false;
+	} else { 	
+		return true;
+	}
+}
+//-->
+</script> 
+
+    <nav>
+      <div class="left">
+		<img style="width:150px;height:150px;" src="https://static3.srcdn.com/wordpress/wp-content/uploads/2020/04/Thanos-MCU-Marvel.jpg" />
+		<h1>Form</h1>
+        </div>
+		<div style="float:center">
+		<h1>
+          CB.EN.U4CSE17414
+        </h1>
+      </div>
+    </nav>
+
+    <main>
+	  <br>
+      <div class="container right-container">
+        <form name="myform" method="post" onsubmit="return validateform()" action="abc.jsp">
+          <fieldset>
+            <legend>Sign Up:</legend>
+            <label>name:</label>
+            <input type="text" name="fname">
+            
+			<br ><br >
+            <label for="email">Email:</label>
+            <input type="email"  name="email" >
+			<br/><br >
+            
+			<label for="phone">Phone Number</label>
+            <input type="text" name="phone" >
+			<br>
+			
+			<br>
+			<label for="paswrd">Password</label>
+            <input name="paswrd" type="password" >
+			<br>
+			<label for="paswrd1">Re-Enter Password</label>
+            <input name="paswrd1" type="password" >
+			<br>
+			<br>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label><br>
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label><br>
+			<input type="radio" id="other" name="gender" value="other">
+			<label for="other">Other</label>
+			<br>
+            <br >
+		  <select required name="year" id="year" form="yearform">
+          <option value="default">Choose Year</option>
+          <option value="first">first</option>
+          <option value="second">Second</option>
+          <option value="third">Third</option>
+          <option value="fourth">Fourth</option>
+          </select>
+		<br>
+		<br>
+            <br >
+            <input type="reset" > <input type="submit" value="Agree & register">
+          </fieldset>
+        </form>
+<p> Submit problems</p>
+		<form action="../" onsubmit="return checkCheckBoxes(this);">
+	<p><input type="CHECKBOX" name="CHECKBOX_1" value="This..."> Doesn't Load.</p>
+	<p><input type="CHECKBOX" name="CHECKBOX_2" value="That..."> Not a student.</p>
+	<p><input type="CHECKBOX" name="CHECKBOX_3" value="...and The Other">Others</p>
+	<p><input type="SUBMIT" value="Submit!"></p>
+</form>
+      </div>
+    </main>
+  </body>
+</html>
